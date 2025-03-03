@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Portfolio</title>
+	<link rel="stylesheet" type="text/css" href="portfolio_style.css">
+</head>
+<body>
+	<div class="main-container">
+		<h1>Your Portfolio.</h1>
+		<img id="profile-pitcture" src="https://via.placeholder.com/120" alt="Profile Picture">
+		<div class="bio-info">
+			<h2 id="userName">Name:</h2>
+			<h2 id="userEdu">Education:</h2>
+			<h2 id="userBio">About Me:</h2>
+			<h2 id="userSkills">Skills:</h2>
+		</div>
+		<button onclick="getUserPortfolioInfo()">Create Your Portfolio</button>
+	</div>
+<script >
+	function getUserPortfolioInfo()
+	{
+		let name = prompt("What is your name?");
+		let edu = prompt("What is your Education");
+		let bio = prompt("Tell us a little bit about you");
+		let skills = prompt("What are your skills?");
+		let profilePitcure = prompt("Please provide the URL of your profile picture:");
+
+		if(!name || !edu || !bio || !skills)
+		{
+			alert("Name,Education,Bio and Skill are mandentory to fill");
+			return ;
+		}
+
+		alert(`Portfolio Created!\nName: ${name}\nEducation: ${edu}\nBio: ${bio}\nSkills: ${skills}`);
+
+		console.log(`User Portfolio:\nName: ${name}\nEducation: ${edu}\nBio: ${bio}\nSkills: ${skills}`);
+
+		document.getElementById("userName").innerText = `Name: ${name}`;
+		document.getElementById("userEdu").innerText = `Education: ${edu}`;
+		document.getElementById("userBio").innerText = `Bio: ${bio}`;
+		document.getElementById("userSkills").innerText = `Skills: ${skills}`;
+
+		if (profilePitcure)
+		{
+			document.getElementById("profile-pitcture").src = profilePitcure;
+		}
+		else
+		{
+			alert("No profile picture URL is provided");
+		}
+	}
+</script>
+</body>
+</html>
